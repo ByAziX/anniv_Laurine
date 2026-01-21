@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0c0a1a;
+  --foreground: #fdf2f8;
+  --muted: #d1c4f6;
+  --accent: #ff8ec7;
+  --accent-strong: #ff4fa0;
+  --glow: rgba(255, 142, 199, 0.2);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-mono: ui-monospace, "SFMono-Regular", "SFMono", Menlo, Monaco, Consolas;
+}
+
+body {
+  background: radial-gradient(circle at 15% 20%, #221a3d 0, transparent 25%),
+    radial-gradient(circle at 85% 15%, #1a1635 0, transparent 20%),
+    radial-gradient(circle at 20% 80%, #1f1b34 0, transparent 22%),
+    linear-gradient(135deg, #0c0a1a 0%, #120d24 50%, #0a1226 100%);
+  color: var(--foreground);
+  font-family: var(--font-body), "Manrope", system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), "Playfair Display", Georgia, serif;
+}
+
+a {
+  color: var(--accent);
+}
