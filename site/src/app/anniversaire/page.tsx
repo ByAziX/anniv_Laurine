@@ -99,6 +99,10 @@ const dateIdeas = [
     title: "UN VOYAGGGGEEEEE",
     detail: "On bloque une destination, on prend des photos.",
   },
+  {
+    title: "MARATHON SOUS LA COUETTE",
+    detail: "Marathon Harry Potter sous la couette, petit thé et chocolats.",
+  },
 ];
 
 export default function AnniversairePage() {
