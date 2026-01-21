@@ -81,7 +81,7 @@ const timelineMoments = [
 const dateIdeas = [
   {
     title: "Coucher de soleil + pique-nique / apéro",
-    detail: "Serviette, fruits, et un toast avec le soleil qui descend.",
+    detail: "Serviette, vin, saucisson et chips 3D, avec le soleil qui descend.",
   },
   {
     title: "Pates Carbonarra par Hugo",

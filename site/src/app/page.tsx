@@ -56,7 +56,7 @@ export default function Home() {
   );
 
   useEffect(() => {
-    const id = requestAnimationFrame(moveNoButton);
+    const id = requestAnimationFrame(() => moveNoButton());
     return () => cancelAnimationFrame(id);
   }, [moveNoButton]);
 
