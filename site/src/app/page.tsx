@@ -12,8 +12,7 @@ const reassurances = [
   "Le bouton Non n'est pas cooperatif, essaie plutot le Oui.",
   "Les girafes te regardent. Elles votent Oui.",
   "Oui = confettis, Non = mission impossible.",
-  "Si tu cliques Oui, je prepare deja la vibration de joie.",
-];
+  "Le Oui est la clef des souvenirs magiques a venir.",];
 
 const NO_BUTTON_SIZE = { width: 156, height: 58 };
 const PADDING = 14;
