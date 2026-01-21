@@ -157,17 +157,9 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
               </div>
               <h1 className="text-4xl font-semibold text-[#2a0a22] sm:text-5xl">Joyeux anniversaire, Laurine</h1>
               <p className="text-lg text-rose-900/80">
-                Les dates qui comptent, avec des photos pour chaque souvenir. Les girafes observent, les coeurs et coquelicots
-                restent en fond.
+                Les moments qui comptent, avec des photos pour chaque souvenir. Les girafes observent.
               </p>
-              <Link
-                href="/"
-                className="inline-flex w-fit items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-semibold text-[#2a0a22] ring-1 ring-white/40 transition hover:scale-105 hover:bg-white/90"
-              >
-                Retour a la declaration
-              </Link>
             </div>
-
             <div className="relative mt-10">
               <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-rose-200/70" aria-hidden="true" />
               <div className="flex flex-col gap-8">
