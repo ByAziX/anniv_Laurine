@@ -24,7 +24,7 @@ const timelineMoments = [
   {
     date: "Premiere sortie",
     title: "Premiere date au BARRRRR",
-    text: "Premier rendez-vous, premiers regards : tu étais vraiment trop belle.",
+    text: "Premier rendez-vous, premiers regards : tu étais vraiment trop belle grrrrr.",
     images: ["/Premiere date/Aix-Presso-Cafe-menu-hbr.webp"],
   },
   {
