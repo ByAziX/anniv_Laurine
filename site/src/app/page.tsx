@@ -170,60 +170,60 @@ export default function Home() {
                 Juste la question, juste le Oui et le Non. Les girafes surveillent, les confettis attendent.
               </p>
             </div>
+          </section>
 
-            <div className="mt-6">
-              <div
-                ref={playgroundRef}
-                onPointerMove={handlePlaygroundPointerMove}
-                className="relative mt-4 h-[220px] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 shadow-inner shadow-black/30"
-              >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_25%,rgba(255,142,199,0.2),transparent_25%),radial-gradient(circle_at_82%_72%,rgba(155,231,255,0.18),transparent_26%)]" />
-                <div className="pointer-events-none absolute -inset-4 giraffe-spots opacity-35" />
-                <div className="pointer-events-none absolute inset-0 heart-grid opacity-35" />
+          <div className="relative mt-6 h-[240px] overflow-hidden rounded-2xl">
+            <div className="pointer-events-none absolute inset-0 giraffe-spots opacity-25" />
+            <div className="pointer-events-none absolute inset-0 heart-grid opacity-25" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_25%,rgba(255,142,199,0.2),transparent_25%),radial-gradient(circle_at_82%_72%,rgba(155,231,255,0.18),transparent_26%)]" />
+            <div className="pointer-events-none absolute -left-16 -top-10 h-48 w-48 rounded-full bg-gradient-to-br from-white/30 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute -right-16 bottom-0 h-48 w-48 rounded-full bg-gradient-to-br from-amber-200/30 via-transparent to-transparent" />
 
-                <div className="relative z-10 flex h-full flex-col justify-end">
-                  <div className="flex flex-wrap items-center gap-4">
-                    <button
-                      onClick={handleYes}
-                      onMouseEnter={() => navigator.vibrate?.(30)}
-                      className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#ff4fa0] via-[#ff8ec7] to-[#ffb8d9] px-6 py-3 text-lg font-semibold text-[#2a0a22] shadow-lg shadow-[#ff4fa0]/30 transition hover:-translate-y-[2px] hover:shadow-xl hover:shadow-[#ff4fa0]/40 focus:outline-none focus:ring-2 focus:ring-[#ff8ec7]/60"
-                    >
-                      <span className="shine absolute inset-0 opacity-40" aria-hidden />
-                      <span className="relative z-10">Oui (confettis)</span>
-                      <span className="relative z-10 rounded-full bg-white/30 px-2 py-1 text-xs font-bold">
-                        {yesClicks || 0}
-                      </span>
-                      <span className="absolute inset-0 rounded-full bg-white/20 opacity-0 transition duration-300 group-hover:opacity-100" />
-                    </button>
+            <div className="relative z-10 h-full px-2 py-4 sm:px-4">
+              <div className="flex flex-wrap items-center gap-4">
+                <button
+                  onClick={handleYes}
+                  onMouseEnter={() => navigator.vibrate?.(30)}
+                  className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#ff4fa0] via-[#ff8ec7] to-[#ffb8d9] px-6 py-3 text-lg font-semibold text-[#2a0a22] shadow-lg shadow-[#ff4fa0]/30 transition hover:-translate-y-[2px] hover:shadow-xl hover:shadow-[#ff4fa0]/40 focus:outline-none focus:ring-2 focus:ring-[#ff8ec7]/60"
+                >
+                  <span className="shine absolute inset-0 opacity-40" aria-hidden />
+                  <span className="relative z-10">Oui (confettis)</span>
+                  <span className="relative z-10 rounded-full bg-white/30 px-2 py-1 text-xs font-bold">
+                    {yesClicks || 0}
+                  </span>
+                  <span className="absolute inset-0 rounded-full bg-white/20 opacity-0 transition duration-300 group-hover:opacity-100" />
+                </button>
 
-                    <div className="relative h-[60px] flex-1">
-                      <button
-                        onMouseEnter={handleNoHover}
-                        onFocus={handleNoHover}
-                        onClick={handleNoHover}
-                        onTouchStart={handleNoHover}
-                        className="absolute left-0 top-0 flex items-center justify-center rounded-full border border-rose-500/50 bg-rose-200/80 px-5 py-3 text-base font-semibold text-[#2a0a22] shadow-lg shadow-black/30 transition active:scale-95"
-                        style={{
-                          left: noPos.x,
-                          top: noPos.y,
-                          width: NO_BUTTON_SIZE.width,
-                          height: NO_BUTTON_SIZE.height,
-                        }}
-                      >
-                        Non (attrape-moi)
-                      </button>
-                    </div>
-                  </div>
+                <div
+                  ref={playgroundRef}
+                  onPointerMove={handlePlaygroundPointerMove}
+                  className="relative h-[200px] flex-1 overflow-hidden"
+                >
+                  <button
+                    onMouseEnter={handleNoHover}
+                    onFocus={handleNoHover}
+                    onClick={handleNoHover}
+                    onTouchStart={handleNoHover}
+                    className="absolute left-0 top-0 flex items-center justify-center rounded-full border border-rose-500/50 bg-rose-200/80 px-5 py-3 text-base font-semibold text-[#2a0a22] shadow-lg shadow-black/30 transition active:scale-95"
+                    style={{
+                      left: noPos.x,
+                      top: noPos.y,
+                      width: NO_BUTTON_SIZE.width,
+                      height: NO_BUTTON_SIZE.height,
+                    }}
+                  >
+                    Non (attrape-moi)
+                  </button>
                 </div>
               </div>
-              <p className="mt-3 text-sm text-rose-900/80">{message}</p>
-              {lockedLove ? (
-                <p className="mt-1 text-sm font-semibold text-emerald-700">
-                  Contracte. Les girafes approuvent ce Oui. Confettis!
-                </p>
-              ) : null}
             </div>
-          </section>
+          </div>
+          <p className="mt-2 text-sm text-rose-900/80">{message}</p>
+          {lockedLove ? (
+            <p className="text-sm font-semibold text-emerald-700">
+              Contracte. Les girafes approuvent ce Oui. Confettis!
+            </p>
+          ) : null}
         </main>
       </div>
     </div>
