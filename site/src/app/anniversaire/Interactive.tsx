@@ -27,6 +27,10 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
   );
   const timelineRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeImages, setActiveImages] = useState<number[]>(() => timelineMoments.map(() => 0));
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [lightboxTitle, setLightboxTitle] = useState("");
 
   const [dateIndex, setDateIndex] = useState(0);
   const [dateMessage, setDateMessage] = useState(
@@ -70,6 +74,34 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
 
     return () => clearInterval(interval);
   }, [timelineMoments]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (event.key === "Escape") {
+        setLightboxOpen(false);
+      } else if (event.key === "ArrowLeft") {
+        setLightboxIndex((current) =>
+          lightboxImages.length ? (current - 1 + lightboxImages.length) % lightboxImages.length : 0
+        );
+      } else if (event.key === "ArrowRight") {
+        setLightboxIndex((current) =>
+          lightboxImages.length ? (current + 1) % lightboxImages.length : 0
+        );
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightboxOpen, lightboxImages.length]);
+
+  const openLightbox = (images: string[], startIndex: number, title: string) => {
+    if (!images.length) return;
+    setLightboxImages(images);
+    setLightboxIndex(startIndex);
+    setLightboxTitle(title);
+    setLightboxOpen(true);
+  };
 
   const handleDateChoice = (accepted: boolean) => {
     if (accepted) {
@@ -165,7 +197,18 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
                         <div className="group relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white via-rose-50/80 to-rose-100/60 p-4 shadow-lg shadow-black/20">
                           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                             <div className="sm:w-1/3">
-                              <div className="relative h-32 w-full overflow-hidden rounded-xl">
+                              <div
+                                className="relative h-32 w-full cursor-pointer overflow-hidden rounded-xl"
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => openLightbox(moment.images, currentIdx, moment.title)}
+                                onKeyDown={(event) => {
+                                  if (event.key === "Enter" || event.key === " ") {
+                                    event.preventDefault();
+                                    openLightbox(moment.images, currentIdx, moment.title);
+                                  }
+                                }}
+                              >
                                 <Image
                                   key={currentImage}
                                   src={currentImage}
@@ -234,10 +277,6 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
                               </div>
                               <p className="text-lg font-semibold text-[#2a0a22]">{moment.title}</p>
                               <p className="text-sm text-rose-900/80">{moment.text}</p>
-                              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-rose-200 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2a0a22]">
-                                Girafe love
-                                <span className="h-1 w-1 rounded-full bg-amber-200/90" />
-                              </span>
                             </div>
                           </div>
                         </div>
@@ -308,6 +347,75 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
           </section>
         </main>
       </div>
+
+      {lightboxOpen && lightboxImages.length > 0 && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 py-6 backdrop-blur-sm"
+          onClick={() => setLightboxOpen(false)}
+          role="presentation"
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-lg font-semibold text-[#2a0a22] shadow-lg shadow-black/30 transition hover:scale-105"
+              aria-label="Fermer"
+              type="button"
+            >
+              ×
+            </button>
+            {lightboxImages.length > 1 && (
+              <>
+                <button
+                  onClick={() =>
+                    setLightboxIndex((current) =>
+                      (current - 1 + lightboxImages.length) % lightboxImages.length
+                    )
+                  }
+                  className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/85 px-3 py-2 text-sm font-semibold text-[#2a0a22] shadow-lg shadow-black/30 transition hover:-translate-y-1/2 hover:scale-105"
+                  aria-label="Photo precedente"
+                  type="button"
+                >
+                  {"<"}
+                </button>
+                <button
+                  onClick={() =>
+                    setLightboxIndex((current) =>
+                      (current + 1) % lightboxImages.length
+                    )
+                  }
+                  className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/85 px-3 py-2 text-sm font-semibold text-[#2a0a22] shadow-lg shadow-black/30 transition hover:-translate-y-1/2 hover:scale-105"
+                  aria-label="Photo suivante"
+                  type="button"
+                >
+                  {">"}
+                </button>
+              </>
+            )}
+
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-black shadow-2xl shadow-black/50">
+              <Image
+                src={lightboxImages[lightboxIndex]}
+                alt={lightboxTitle || "Photo timeline"}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="mt-3 flex items-center justify-between text-white">
+              <div className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+                {lightboxTitle}
+              </div>
+              <div className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
+                {lightboxIndex + 1}/{lightboxImages.length}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
