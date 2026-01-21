@@ -8,7 +8,7 @@ type TimelineMoment = {
   date: string;
   title: string;
   text: string;
-  image: string;
+  images: string[];
 };
 
 type DateIdea = {
@@ -26,6 +26,7 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
     Array(timelineMoments.length).fill(false)
   );
   const timelineRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeImages, setActiveImages] = useState<number[]>(() => timelineMoments.map(() => 0));
 
   const [dateIndex, setDateIndex] = useState(0);
   const [dateMessage, setDateMessage] = useState(
@@ -56,6 +57,20 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImages((current) =>
+        current.map((val, idx) => {
+          const len = timelineMoments[idx].images.length;
+          if (len <= 1) return 0;
+          return (val + 1) % len;
+        })
+      );
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, [timelineMoments]);
+
   const handleDateChoice = (accepted: boolean) => {
     if (accepted) {
       setDateMessage("Parfait, on garde celle-ci. Girafes et coeurs valident.");
@@ -77,26 +92,22 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
       <div className="pointer-events-none floating-spot absolute -right-28 bottom-10 h-80 w-80 rounded-full bg-gradient-to-br from-[rgba(110,231,255,0.22)] via-[rgba(168,85,247,0.18)] to-[rgba(255,142,199,0.28)]" />
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col gap-8 px-6 py-14 sm:py-18">
-        <header className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <header className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/70 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-2">
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#2a0a22] ring-1 ring-rose-200/70">
                 Anniversaire
-                <span className="h-1 w-1 rounded-full bg-rose-100/80" />
+                <span className="h-1 w-1 rounded-full bg-rose-300" />
                 Girafes encore
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-[6px] text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
-                Edition tachetee
-                <span className="shine block h-[2px] w-8 rounded-full bg-white/60" />
-              </span>
             </div>
-            <p className="text-sm text-rose-100/80">
-              Une page pour celebrer ton jour, et rappeler que le Oui est deja signe.
+            <p className="text-sm text-rose-900/80">
+              Une page pour celebrer ton jour, et rappeler que tu es une personne merveilleuse.
             </p>
           </div>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-rose-50 ring-1 ring-white/20 transition hover:scale-105 hover:bg-white/25"
+            className="inline-flex items-center gap-2 self-start rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#2a0a22] ring-1 ring-rose-200/70 transition hover:scale-105 hover:bg-rose-50"
           >
             Retour a la declaration
           </Link>
@@ -107,9 +118,9 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
             <div className="pointer-events-none absolute inset-0 giraffe-spots opacity-30" />
             <div className="pointer-events-none absolute -right-14 -top-10 h-44 w-44 rounded-full bg-gradient-to-br from-white/15 via-transparent to-transparent" />
             <div className="relative z-10 flex flex-col gap-4">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#9b1b56]/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#9b1b56] ring-1 ring-[#9b1b56]/30">
                 Timeline
-                <span className="h-1 w-1 rounded-full bg-rose-100/80" />
+                <span className="h-1 w-1 rounded-full bg-[#9b1b56]" />
                 Girafes & souvenirs
               </div>
               <h1 className="text-4xl font-semibold text-[#2a0a22] sm:text-5xl">Joyeux anniversaire, Laurine</h1>
@@ -126,10 +137,14 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
             </div>
 
             <div className="relative mt-10">
-              <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-rose-200/70" />
+              <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-rose-200/70" aria-hidden="true" />
               <div className="flex flex-col gap-8">
                 {timelineMoments.map((moment, idx) => {
                   const isLeft = idx % 2 === 0;
+                  const hasMultiple = moment.images.length > 1;
+                  const currentIdx =
+                    moment.images.length === 0 ? 0 : activeImages[idx] % moment.images.length;
+                  const currentImage = moment.images[currentIdx] ?? "";
                   return (
                     <div
                       key={moment.title}
@@ -150,13 +165,68 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
                         <div className="group relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white via-rose-50/80 to-rose-100/60 p-4 shadow-lg shadow-black/20">
                           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                             <div className="sm:w-1/3">
-                              <Image
-                                src={moment.image}
-                                alt={moment.title}
-                                width={420}
-                                height={280}
-                                className="h-32 w-full rounded-xl object-cover transition duration-500 group-hover:scale-105"
-                              />
+                              <div className="relative h-32 w-full overflow-hidden rounded-xl">
+                                <Image
+                                  key={currentImage}
+                                  src={currentImage}
+                                  alt={moment.title}
+                                  fill
+                                  sizes="(max-width: 640px) 100vw, 33vw"
+                                  className="object-cover transition duration-700"
+                                />
+                                {hasMultiple && (
+                                  <>
+                                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
+                                    <div className="absolute inset-0 flex items-center justify-between px-2">
+                                      <button
+                                        onClick={() =>
+                                          setActiveImages((current) => {
+                                            const next = [...current];
+                                            const len = moment.images.length;
+                                            next[idx] = (next[idx] - 1 + len) % len;
+                                            return next;
+                                          })
+                                        }
+                                        className="rounded-full bg-white/80 px-2 py-1 text-xs font-semibold text-[#2a0a22] shadow-sm shadow-black/10 transition hover:scale-105"
+                                        aria-label="Photo precedente"
+                                        type="button"
+                                      >
+                                        {"<"}
+                                      </button>
+                                      <button
+                                        onClick={() =>
+                                          setActiveImages((current) => {
+                                            const next = [...current];
+                                            const len = moment.images.length;
+                                            next[idx] = (next[idx] + 1) % len;
+                                            return next;
+                                          })
+                                        }
+                                        className="rounded-full bg-white/80 px-2 py-1 text-xs font-semibold text-[#2a0a22] shadow-sm shadow-black/10 transition hover:scale-105"
+                                        aria-label="Photo suivante"
+                                        type="button"
+                                      >
+                                        {">"}
+                                      </button>
+                                    </div>
+                                    <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#2a0a22] shadow-sm shadow-black/10">
+                                      <span>
+                                        {currentIdx + 1}/{moment.images.length}
+                                      </span>
+                                      <div className="flex items-center gap-1">
+                                        {moment.images.map((_, imageIdx) => (
+                                          <span
+                                            key={`${moment.title}-dot-${imageIdx}`}
+                                            className={`h-1.5 w-1.5 rounded-full ${
+                                              imageIdx === currentIdx ? "bg-[#ff4fa0]" : "bg-rose-200"
+                                            }`}
+                                          />
+                                        ))}
+                                      </div>
+                                    </div>
+                                  </>
+                                )}
+                              </div>
                             </div>
                             <div className="flex-1 space-y-2">
                               <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2a0a22] ring-1 ring-rose-200/70">
@@ -188,9 +258,9 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
 
             <div className="relative z-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="flex flex-col gap-3">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#9b1b56]/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#9b1b56] ring-1 ring-[#9b1b56]/30">
                   Droit a des dates
-                  <span className="h-1 w-1 rounded-full bg-rose-100/80" />
+                  <span className="h-1 w-1 rounded-full bg-[#9b1b56]" />
                   Choisis Oui / Non
                 </div>
                 <h2 className="text-3xl font-semibold text-[#2a0a22]">Propositions en serie</h2>

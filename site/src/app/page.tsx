@@ -15,7 +15,7 @@ const reassurances = [
   "Si tu cliques Oui, je prepare deja la vibration de joie.",
 ];
 
-const NO_BUTTON_SIZE = { width: 132, height: 52 };
+const NO_BUTTON_SIZE = { width: 156, height: 58 };
 const PADDING = 14;
 
 const pick = (list: string[]) => list[Math.floor(Math.random() * list.length)];
@@ -141,8 +141,10 @@ export default function Home() {
       <div className="pointer-events-none floating-spot absolute -right-28 bottom-6 h-80 w-80 rounded-full bg-gradient-to-br from-[rgba(110,231,255,0.22)] via-[rgba(168,85,247,0.18)] to-[rgba(255,142,199,0.28)]" />
 
       <div className="relative z-10 mx-auto flex max-w-3xl flex-col gap-8 px-6 py-12 sm:py-16 lg:py-20">
-        <header className="flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <h1 className="text-xl font-semibold text-[#2a0a22]">Question pour Laurine</h1>
+        <header className="flex flex-col gap-2 rounded-2xl border border-white/10 bg-gradient-to-r from-white via-rose-50 to-white px-5 py-4 sm:flex-row sm:items-center sm:justify-between shadow-sm">
+          <h1 className="text-xl font-semibold uppercase tracking-[0.28em] text-[#9b1b56]">
+            Question pour Laurine
+          </h1>
           <Link
             href="/anniversaire"
             className="inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-[#2a0a22] ring-1 ring-white/20 transition hover:scale-105 hover:bg-white/25"
@@ -158,9 +160,9 @@ export default function Home() {
             <div className="pointer-events-none absolute -left-12 bottom-0 h-40 w-40 rounded-full bg-gradient-to-br from-amber-200/10 via-transparent to-transparent" />
 
             <div className="relative">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#9b1b56]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#9b1b56] ring-1 ring-[#9b1b56]/30">
                 Question unique
-                <span className="h-1 w-1 rounded-full bg-rose-200" />
+                <span className="h-1 w-1 rounded-full bg-[#9b1b56]" />
                 Girafes inside
               </div>
               <h1 className="text-4xl font-semibold leading-tight text-[#2a0a22] sm:text-5xl">
@@ -184,10 +186,10 @@ export default function Home() {
                 <button
                   onClick={handleYes}
                   onMouseEnter={() => navigator.vibrate?.(30)}
-                  className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#ff4fa0] via-[#ff8ec7] to-[#ffb8d9] px-6 py-3 text-lg font-semibold text-[#2a0a22] shadow-lg shadow-[#ff4fa0]/30 transition hover:-translate-y-[2px] hover:shadow-xl hover:shadow-[#ff4fa0]/40 focus:outline-none focus:ring-2 focus:ring-[#ff8ec7]/60"
+                  className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#f97316] via-[#fb7185] to-[#ec4899] px-7 py-3.5 text-lg font-semibold text-[#2a0a22] shadow-lg shadow-[#f97316]/30 transition hover:-translate-y-[2px] hover:shadow-xl hover:shadow-[#ec4899]/50 focus:outline-none focus:ring-2 focus:ring-[#fb7185]/60"
                 >
                   <span className="shine absolute inset-0 opacity-40" aria-hidden />
-                  <span className="relative z-10">Oui (confettis)</span>
+                  <span className="relative z-10">Oui</span>
                   <span className="relative z-10 rounded-full bg-white/30 px-2 py-1 text-xs font-bold">
                     {yesClicks || 0}
                   </span>
@@ -204,7 +206,7 @@ export default function Home() {
                     onFocus={handleNoHover}
                     onClick={handleNoHover}
                     onTouchStart={handleNoHover}
-                    className="absolute left-0 top-0 flex items-center justify-center rounded-full border border-rose-500/50 bg-rose-200/80 px-5 py-3 text-base font-semibold text-[#2a0a22] shadow-lg shadow-black/30 transition active:scale-95"
+                    className="absolute left-0 top-0 flex items-center justify-center rounded-full border border-[#9b1b56]/60 bg-[#fecdd3] px-6 py-3.5 text-base font-semibold text-[#2a0a22] shadow-lg shadow-black/30 transition active:scale-95"
                     style={{
                       left: noPos.x,
                       top: noPos.y,
