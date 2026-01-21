@@ -84,7 +84,7 @@ const dateIdeas = [
     detail: "Serviette, vin, saucisson et chips 3D, avec le soleil qui descend.",
   },
   {
-    title: "Pates Carbonarra par Hugo",
+    title: "Pâtes carbonara par Hugo",
     detail: "Il sait pas cuisiner mais c'est pas grave: on rit et on goute quand meme.",
   },
   {
