@@ -130,7 +130,7 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
               <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#2a0a22] ring-1 ring-rose-200/70">
                 Anniversaire
                 <span className="h-1 w-1 rounded-full bg-rose-300" />
-                Girafes encore
+                Girafes & souvenirs
               </span>
             </div>
             <p className="text-sm text-rose-900/80">
