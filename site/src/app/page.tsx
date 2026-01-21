@@ -169,7 +169,7 @@ export default function Home() {
                 Laurine, tu veux te mettre en couple avec moi ?
               </h1>
               <p className="mt-3 text-lg text-rose-900/80">
-                Juste la question, juste le Oui et le Non. Les girafes surveillent, les confettis attendent.
+                Juste la question, juste le Oui et le Non. Les girafes surveillent.
               </p>
             </div>
           </section>

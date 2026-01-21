@@ -198,7 +198,7 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
                           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                             <div className="sm:w-1/3">
                               <div
-                                className="relative h-32 w-full cursor-pointer overflow-hidden rounded-xl"
+                                className="relative w-full cursor-pointer overflow-hidden rounded-xl aspect-[4/5] sm:aspect-[4/3]"
                                 role="button"
                                 tabIndex={0}
                                 onClick={() => openLightbox(moment.images, currentIdx, moment.title)}
