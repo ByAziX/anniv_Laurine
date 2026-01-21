@@ -124,21 +124,38 @@ export default function Home() {
     navigator.vibrate?.([100, 40, 80]);
   };
 
+  const enthusiasm = Math.min(yesClicks * 12 + 24, 100);
+
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 opacity-80 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,142,199,0.2)_0,transparent_28%),radial-gradient(circle_at_82%_18%,rgba(255,244,163,0.15)_0,transparent_24%),radial-gradient(circle_at_25%_82%,rgba(155,231,255,0.2)_0,transparent_30%)]" />
+      <div className="pointer-events-none absolute inset-0 giraffe-spots" />
+      <div className="pointer-events-none absolute inset-0 savanna-grid opacity-60" />
+      <div className="pointer-events-none absolute inset-0 opacity-80 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,142,199,0.22)_0,transparent_28%),radial-gradient(circle_at_82%_18%,rgba(255,244,163,0.16)_0,transparent_24%),radial-gradient(circle_at_25%_82%,rgba(155,231,255,0.2)_0,transparent_30%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(255,79,160,0.2),transparent_24%),radial-gradient(circle_at_90%_22%,rgba(135,92,255,0.22),transparent_26%)] blur-3xl" />
+      <div className="pointer-events-none floating-spot absolute -left-24 top-10 h-72 w-72 rounded-full bg-gradient-to-br from-[rgba(255,206,137,0.3)] via-[rgba(255,142,199,0.26)] to-[rgba(110,231,255,0.22)] blur-3xl" />
+      <div className="pointer-events-none floating-spot absolute -right-28 bottom-6 h-80 w-80 rounded-full bg-gradient-to-br from-[rgba(110,231,255,0.22)] via-[rgba(168,85,247,0.18)] to-[rgba(255,142,199,0.28)] blur-3xl" />
 
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-10 px-6 py-12 sm:py-16 lg:py-20">
+        <div className="pointer-events-none absolute right-0 top-2 hidden rotate-2 lg:block">
+          <div className="floating-spot rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-semibold text-rose-50 shadow-lg shadow-[#ff8ec7]/30 backdrop-blur">
+            Girafe watch : elles surveillent ce Oui.
+          </div>
+        </div>
         <header className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-rose-100">
-              Laurine special
-              <span className="h-1 w-1 rounded-full bg-rose-100/80" />
-              Girafes incluses
-            </span>
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-rose-100">
+                Edition savane
+                <span className="h-1 w-1 rounded-full bg-rose-100/80" />
+                Girafes incluses
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-[6px] text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
+                Safari du coeur
+                <span className="shine block h-[2px] w-8 rounded-full bg-white/60" />
+              </span>
+            </div>
             <span className="text-sm text-rose-100/80">
-              Un bouton Non qui fuit + des confettis + un Oui incontournable.
+              Un bouton Non en cavale, des confettis impatients et des girafes en temoins.
             </span>
           </div>
           <Link
@@ -150,19 +167,40 @@ export default function Home() {
         </header>
 
         <main className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <section className="rounded-3xl border border-white/10 bg-white/10 p-8 shadow-2xl shadow-fuchsia-500/10 backdrop-blur">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
-              <span>Plan coeur</span>
-              <span className="h-1 w-1 rounded-full bg-rose-200" />
-              <span>Girafes inside</span>
+          <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/10 p-8 shadow-2xl shadow-fuchsia-500/10 backdrop-blur">
+            <div className="pointer-events-none absolute inset-0 giraffe-spots opacity-30" />
+            <div className="pointer-events-none absolute -right-16 -top-12 h-48 w-48 rounded-full bg-gradient-to-br from-white/15 via-transparent to-transparent blur-3xl" />
+            <div className="pointer-events-none absolute -left-12 bottom-0 h-40 w-40 rounded-full bg-gradient-to-br from-amber-200/10 via-transparent to-transparent blur-3xl" />
+
+            <div className="relative">
+              <div className="mb-6 flex flex-wrap items-center gap-3">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
+                  <span>Plan coeur</span>
+                  <span className="h-1 w-1 rounded-full bg-rose-200" />
+                  <span>Girafes inside</span>
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-100">
+                  <span>Edition safari</span>
+                  <span className="h-1 w-1 rounded-full bg-amber-200/80" />
+                  <span>Confettis assures</span>
+                </div>
+              </div>
+              <h1 className="text-4xl font-semibold leading-tight text-rose-50 sm:text-5xl">
+                Laurine, tu veux te mettre en couple avec moi ?
+              </h1>
+              <p className="mt-4 text-lg text-rose-100/85">
+                J&apos;ai prepare des confettis, des vibrations de joie et un bouton Non qui panique des que tu l&apos;approches.
+                Le Oui t&apos;attend juste la. Les girafes prennent des notes et votent deja.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-rose-100">
+                  Mode Oui magnetise
+                </span>
+                <span className="rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-amber-50">
+                  Girafe seal
+                </span>
+              </div>
             </div>
-            <h1 className="text-4xl font-semibold leading-tight text-rose-50 sm:text-5xl">
-              Laurine, tu veux te mettre en couple avec moi ?
-            </h1>
-            <p className="mt-4 text-lg text-rose-100/85">
-              J&apos;ai prepare des confettis, des vibrations de joie et un bouton Non qui panique des que tu l&apos;approches.
-              Le Oui t&apos;attend juste la. Et il y a des girafes pour temoigner.
-            </p>
 
             <div className="mt-8">
               <p className="text-sm font-medium uppercase tracking-[0.25em] text-rose-100/70">
@@ -171,17 +209,23 @@ export default function Home() {
               <div
                 ref={playgroundRef}
                 onPointerMove={handlePlaygroundPointerMove}
-                className="relative mt-4 h-[210px] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6"
+                className="relative mt-4 h-[230px] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 shadow-inner shadow-black/30"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_25%,rgba(255,142,199,0.2),transparent_25%),radial-gradient(circle_at_82%_72%,rgba(155,231,255,0.18),transparent_26%)]" />
+                <div className="pointer-events-none absolute -inset-4 giraffe-spots opacity-35" />
+                <div className="pointer-events-none absolute inset-0 savanna-grid opacity-45" />
+                <div className="pointer-events-none absolute right-4 top-3 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-rose-100">
+                  Zone confettis
+                </div>
 
                 <div className="relative z-10 flex h-full flex-col justify-end">
                   <div className="flex flex-wrap items-center gap-4">
                     <button
                       onClick={handleYes}
                       onMouseEnter={() => navigator.vibrate?.(30)}
-                      className="group relative flex items-center gap-3 rounded-full bg-gradient-to-r from-[#ff4fa0] via-[#ff8ec7] to-[#ffb8d9] px-6 py-3 text-lg font-semibold text-[#2a0a22] shadow-lg shadow-[#ff4fa0]/30 transition hover:-translate-y-[2px] hover:shadow-xl hover:shadow-[#ff4fa0]/40 focus:outline-none focus:ring-2 focus:ring-[#ff8ec7]/60"
+                      className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#ff4fa0] via-[#ff8ec7] to-[#ffb8d9] px-6 py-3 text-lg font-semibold text-[#2a0a22] shadow-lg shadow-[#ff4fa0]/30 transition hover:-translate-y-[2px] hover:shadow-xl hover:shadow-[#ff4fa0]/40 focus:outline-none focus:ring-2 focus:ring-[#ff8ec7]/60"
                     >
+                      <span className="shine absolute inset-0 opacity-40" aria-hidden />
                       <span className="relative z-10">Oui (confettis)</span>
                       <span className="relative z-10 rounded-full bg-white/30 px-2 py-1 text-xs font-bold">
                         {yesClicks || 0}
@@ -215,6 +259,18 @@ export default function Home() {
                   Contracte. Les girafes approuvent ce Oui. Confettis!
                 </p>
               ) : null}
+              <div className="mt-4">
+                <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.24em] text-rose-100/70">
+                  <span>Taux de Oui</span>
+                  <span>{enthusiasm}%</span>
+                </div>
+                <div className="mt-2 h-2 w-full overflow-hidden rounded-full border border-white/10 bg-white/5">
+                  <div
+                    className="h-full bg-gradient-to-r from-[#ff4fa0] via-[#ff8ec7] to-[#ffce89]"
+                    style={{ width: `${enthusiasm}%` }}
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -245,7 +301,18 @@ export default function Home() {
           </section>
 
           <aside className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl backdrop-blur">
+            <div className="absolute inset-0 giraffe-spots opacity-35" />
             <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-black/45" />
+            <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-rose-50 backdrop-blur">
+              Girafe club
+              <span className="h-1 w-1 rounded-full bg-amber-200/90" />
+            </div>
+            <div className="absolute right-4 top-16 z-10 rounded-2xl border border-white/15 bg-black/35 px-3 py-2 text-sm text-rose-50 shadow-lg shadow-black/40 backdrop-blur">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-rose-100">
+                Note photo
+              </p>
+              <p className="text-xs text-rose-100/80">Duo girafe qui valide chaque Oui.</p>
+            </div>
             <Image
               src={giraffeUrl}
               alt="Deux girafes qui se calinent"
@@ -272,11 +339,13 @@ export default function Home() {
 
         <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_32%,rgba(255,142,199,0.16),transparent_30%),radial-gradient(circle_at_80%_68%,rgba(155,231,255,0.12),transparent_26%)]" />
+          <div className="absolute inset-0 giraffe-spots opacity-30" />
+          <div className="absolute inset-0 savanna-grid opacity-35" />
           <div className="relative z-10 grid gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-semibold text-rose-50">Plan de jeu</h2>
               <p className="mt-2 text-rose-100/85">
-                On valide le Oui ici, puis on file sur la page anniversaire pour le grand jour.
+                On valide le Oui ici, avec fond tachete version girafe, puis on file sur la page anniversaire pour le grand jour.
                 Tu peux re-cliquer sur Oui juste pour declencher des confettis supplementaires.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -288,6 +357,9 @@ export default function Home() {
                 </span>
                 <span className="rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-rose-50">
                   Girafes approuvees
+                </span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-rose-50">
+                  Spots de savane
                 </span>
               </div>
             </div>
