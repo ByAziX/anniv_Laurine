@@ -93,7 +93,7 @@ const dateIdeas = [
   },
   {
     title: "Randonnee au Mugel (La Ciotat)",
-    detail: "Sentier, criques et sandwichs. On se pose face a l'eau et on ajoute une photo girafe.",
+    detail: "Sentier, criques et sandwichs. On se pose face a l'eau et on ajoute une photo hehe.",
   },
   {
     title: "UN VOYAGGGGEEEEE",
