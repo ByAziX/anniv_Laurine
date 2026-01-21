@@ -9,7 +9,7 @@ const timelineMoments = [
   {
     date: "Premier message",
     title: "Premier messages",
-    text: "Les premiers mots qui lancent tout. Girafes imaginaires deja en coulisses.",
+    text: "Les premiers mots qui lancent tout.",
     images: [
       "/Premier messages/1000023131.jpg",
       "/Premier messages/1000023211.jpg",
@@ -18,19 +18,19 @@ const timelineMoments = [
   {
     date: "Premiere photo",
     title: "Photo avec sa soeur",
-    text: "Laurine m&apos;envoie une photo d&apos;elle et sa soeur pour la premiere fois, sous le regard juge des hommes.",
+    text: "Laurine m'envoie une photo delle et sa soeur pour la premiere fois, Elles jugent fort. :) ",
     images: ["/Photo avec sa soeur/1000023222.jpg"],
   },
   {
     date: "Premiere sortie",
-    title: "Premiere date",
-    text: "Premier rendez-vous, premiers regards, coeurs en mode confettis.",
-    images: ["https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80"],
+    title: "Premiere date au BARRRRR",
+    text: "Premier rendez-vous, premiers regards : tu étais vraiment trop belle.",
+    images: ["/Premiere date/Aix-Presso-Cafe-menu-hbr.webp"],
   },
   {
     date: "Zoo Barben",
     title: "Sortie au Zoo Barben",
-    text: "Girafes en vrai, coquelicots en esprit, fou rire garanti.",
+    text: "Girafes en vrai, souvenirs gravés.",
     images: [
       "/Zoo barben/1000024071.jpg",
       "/Zoo barben/1000024073.jpg",
@@ -40,7 +40,7 @@ const timelineMoments = [
   {
     date: "Mont Faron",
     title: "Mont Faron",
-    text: "Vue d&apos;en haut, vent doux, et promesse de prochaines aventures.",
+    text: "Meilleure vue de Toulon, mais bon, pas oufff non plus ;).",
     images: [
       "/Faron/1000024275.jpg",
       "/Faron/1000024310.jpg",
@@ -49,13 +49,13 @@ const timelineMoments = [
   {
     date: "Zoo Faron",
     title: "Zoo du mont Faron",
-    text: "Encore des animaux, encore des girafes, encore des souvenirs.",
+    text: "Encore des animaux, encore des souvenirs.",
     images: ["/Faron Zoo/1000024280.jpg"],
   },
   {
     date: "Restaurant La Ciotat",
     title: "Diner a La Ciotat",
-    text: "Un resto a La Ciotat, plats qui sentent bon la mer et nous qui partageons tout.",
+    text: "Un resto a La Ciotat, plats qui sentent bon la mer hein Laurine avec ton poisson hahaha et les vieux derriere qui nous regardent bizarrement.",
     images: ["/La Ciotat diner/1000024987.jpg"],
   },
   {
