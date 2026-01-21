@@ -49,7 +49,7 @@ const timelineMoments = [
   {
     date: "Zoo Faron",
     title: "Zoo du mont Faron",
-    text: "Encore des animaux, encore des souvenirs.",
+    text: "Encore des animaux, encore des souvenirs, il est beau gosse NONNNNN ???",
     images: ["/Faron Zoo/1000024280.jpg"],
   },
   {
@@ -60,14 +60,14 @@ const timelineMoments = [
   },
   {
     date: "Mugel - La Ciotat",
-    title: "Date au Mugel",
-    text: "Calanque du Mugel, eau turquoise, coquelicots imaginaires et nous deux.",
+    title: "Le Mugel",
+    text: "Calanque du Mugel, trop beau, même en savate deux doigt.",
     images: ["/Date au Mugel/1000024985.jpg"],
   },
   {
     date: "Aix",
-    title: "Le meilleur restaurant d&apos;Aix",
-    text: "Un diner a Aix, gout delicat, et nos coeurs bien remplis.",
+    title: "Le meilleur restaurant d'Aix",
+    text: "Un diner a Aix, meilleur resto d'aix askip. En tout cas, on a bien mangé",
     images: ["/Meilleur resto daix askip/1000024488.jpg"],
   },
   {
@@ -85,7 +85,7 @@ const dateIdeas = [
   },
   {
     title: "Pates Carbonarra par Hugo",
-    detail: "Il sait pas cuisiner mais c&apos;est pas grave: on rit et on goute quand meme.",
+    detail: "Il sait pas cuisiner mais c'est pas grave: on rit et on goute quand meme.",
   },
   {
     title: "Petit week-end tous les deux",
@@ -93,11 +93,11 @@ const dateIdeas = [
   },
   {
     title: "Randonnee au Mugel (La Ciotat)",
-    detail: "Sentier, criques et sandwichs. On se pose face a l&apos;eau et on ajoute une photo girafe.",
+    detail: "Sentier, criques et sandwichs. On se pose face a l'eau et on ajoute une photo girafe.",
   },
   {
     title: "UN VOYAGGGGEEEEE",
-    detail: "On bloque une destination, on prend des photos de girafes imaginaires.",
+    detail: "On bloque une destination, on prend des photos.",
   },
 ];
 

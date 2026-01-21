@@ -104,11 +104,11 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
   };
 
   const handleDateChoice = (accepted: boolean) => {
+    const next = (dateIndex + 1) % dateIdeas.length;
+    setDateIndex(next);
     if (accepted) {
-      setDateMessage("Parfait, on garde celle-ci. Girafes et coeurs valident.");
+      setDateMessage("Parfait, on garde celle-ci... et on enchaine sur la suivante !");
     } else {
-      const next = (dateIndex + 1) % dateIdeas.length;
-      setDateIndex(next);
       setDateMessage("Nouvelle idee juste en dessous. Dis-moi Oui ou Non.");
     }
   };
