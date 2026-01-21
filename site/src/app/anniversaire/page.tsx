@@ -7,51 +7,65 @@ export const metadata = {
 
 const timelineMoments = [
   {
-    date: "20 decembre 1848",
-    title: "Libertes a La Reunion",
-    text: "Souvenir fort: abolition sur l&apos;ile, symbole de demarrage et d&apos;espoir.",
-    image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
     date: "Premier message",
-    title: "Tout commence",
-    text: "Des mots simples qui changent tout. Girafes imaginaires deja en coulisses.",
+    title: "Premier messages",
+    text: "Les premiers mots qui lancent tout. Girafes imaginaires deja en coulisses.",
     image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    date: "Coucher de soleil",
-    title: "Promesse rose",
-    text: "Soleil qui descend, coeurs qui montent. On garde la couleur coquelicot.",
+    date: "Premiere sortie",
+    title: "Premiere date",
+    text: "Premier rendez-vous, premiers regards, coeurs en mode confettis.",
+    image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    date: "Zoo Barben",
+    title: "Sortie au Zoo Barben",
+    text: "Girafes en vrai, coquelicots en esprit, fou rire garanti.",
+    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    date: "Mont Faron",
+    title: "Mont Faron",
+    text: "Vue d&apos;en haut, vent doux, et promesse de prochaines aventures.",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    date: "Question ici",
-    title: "Ton Oui attendu",
-    text: "La date ou tu cliques sur Oui. Girafes, confettis et souvenir ancre.",
+    date: "Zoo Faron",
+    title: "Zoo du mont Faron",
+    text: "Encore des animaux, encore des girafes, encore des souvenirs.",
     image: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1200&q=80&sat=-8",
+  },
+  {
+    date: "Aix",
+    title: "Le meilleur restaurant d&apos;Aix",
+    text: "Un diner a Aix, gout delicat, et nos coeurs bien remplis.",
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    date: "Bientot",
+    title: "A suivre...",
+    text: "Encore plein de dates a ajouter. Les girafes attendent la suite.",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80&sat=-8",
   },
 ];
 
 const dateIdeas = [
   {
-    title: "Coucher de soleil + pique-nique",
-    detail: "Serviette, fruits, coquelicots symboliques, et une photo girafe en fond d&apos;cran.",
+    title: "Coucher de soleil + pique-nique / apéro",
+    detail: "Serviette, fruits, et un toast avec le soleil qui descend.",
   },
   {
-    title: "Balade volcan doux",
-    detail: "Sentier facile, thermos chocolat, et drapeau de La Reunion dans le sac.",
+    title: "Pates Carbonarra par Hugo",
+    detail: "Il sait pas cuisiner mais c&apos;est pas grave: on rit et on goute quand meme.",
   },
   {
-    title: "Cinema maison",
-    detail: "Playlist romance, couverture rose, pluie de coeurs et popcorn caramel.",
+    title: "Petit week-end tous les deux",
+    detail: "Sac leger, virée a deux, et souvenirs ajoutés a la timeline.",
   },
   {
-    title: "Brunch coquelicots",
-    detail: "Tartines confiture goyave, jus exotique, et mini girafe en deco.",
-  },
-  {
-    title: "Nuit etoiles",
-    detail: "Couverture, musique douce, on pointe une constellation girafe imaginaire.",
+    title: "UN VOYAGGGGEEEEE",
+    detail: "On bloque une destination, on prend des photos de girafes imaginaires.",
   },
 ];
 

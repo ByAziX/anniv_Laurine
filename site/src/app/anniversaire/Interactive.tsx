@@ -125,41 +125,57 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
               </Link>
             </div>
 
-            <div className="relative mt-6 grid gap-6 lg:grid-cols-2">
-              {timelineMoments.map((moment, idx) => (
-                <div
-                  key={moment.title}
-                  ref={(el) => {
-                    timelineRefs.current[idx] = el;
-                  }}
-                  data-idx={idx}
-                  className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-lg shadow-black/30 transition duration-700 ease-out ${
-                    visibleTimeline[idx] ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-                  }`}
-                >
-                  <Image
-                    src={moment.image}
-                    alt={moment.title}
-                    width={720}
-                    height={520}
-                    className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-transparent" />
-                  <div className="absolute left-3 right-3 top-3 flex items-center justify-between gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#2a0a22]">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1">
-                      {moment.date}
-                    </span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white/80 px-3 py-1 text-[#2a0a22]">
-                      Girafe love
-                      <span className="h-1 w-1 rounded-full bg-amber-200/90" />
-                    </span>
-                  </div>
-                  <div className="relative z-10 p-4">
-                    <p className="text-sm font-semibold text-[#2a0a22]">{moment.title}</p>
-                    <p className="mt-2 text-sm text-rose-900/80">{moment.text}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="relative mt-10">
+              <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-rose-200/70" />
+              <div className="flex flex-col gap-8">
+                {timelineMoments.map((moment, idx) => {
+                  const isLeft = idx % 2 === 0;
+                  return (
+                    <div
+                      key={moment.title}
+                      ref={(el) => {
+                        timelineRefs.current[idx] = el;
+                      }}
+                      data-idx={idx}
+                      className={`relative flex ${isLeft ? "lg:justify-start" : "lg:justify-end"} transition duration-700 ease-out ${
+                        visibleTimeline[idx] ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                      }`}
+                    >
+                      <div className="absolute left-1/2 top-6 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border-2 border-rose-300 bg-white text-sm font-semibold text-rose-500">
+                        {idx + 1}
+                      </div>
+                      <div
+                        className={`w-full lg:w-[48%] ${isLeft ? "lg:mr-10" : "lg:ml-10"}`}
+                      >
+                        <div className="group relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white via-rose-50/80 to-rose-100/60 p-4 shadow-lg shadow-black/20">
+                          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+                            <div className="sm:w-1/3">
+                              <Image
+                                src={moment.image}
+                                alt={moment.title}
+                                width={420}
+                                height={280}
+                                className="h-32 w-full rounded-xl object-cover transition duration-500 group-hover:scale-105"
+                              />
+                            </div>
+                            <div className="flex-1 space-y-2">
+                              <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2a0a22] ring-1 ring-rose-200/70">
+                                {moment.date}
+                              </div>
+                              <p className="text-lg font-semibold text-[#2a0a22]">{moment.title}</p>
+                              <p className="text-sm text-rose-900/80">{moment.text}</p>
+                              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-rose-200 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2a0a22]">
+                                Girafe love
+                                <span className="h-1 w-1 rounded-full bg-amber-200/90" />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </section>
 
@@ -211,28 +227,11 @@ export default function AnniversaireInteractive({ timelineMoments, dateIdeas }: 
                 <div className="pointer-events-none absolute inset-0 heart-grid opacity-25" />
                 <div className="relative flex flex-col gap-3">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-rose-900/80">
-                    Couchees sur papier
+                    A suivre
                   </p>
                   <p className="text-lg font-semibold text-[#2a0a22]">
-                    Chaque Oui sera note dans notre timeline. Les girafes prennent des notes.
+                    On ajoutera les prochaines dates ici.
                   </p>
-                  <p className="text-sm text-rose-900/80">
-                    Si tu refuses une idee, une autre arrive. Si tu acceptes, on la celebre avec coeurs, coquelicots et drapeau de La Reunion en fond.
-                  </p>
-                  <div className="mt-2 grid gap-2 text-sm text-[#2a0a22] sm:grid-cols-2">
-                    <span className="rounded-xl border border-white/20 bg-white/70 px-3 py-2">
-                      Girafe emoji: present
-                    </span>
-                    <span className="rounded-xl border border-white/20 bg-white/70 px-3 py-2">
-                      Coeurs et coquelicots inclus
-                    </span>
-                    <span className="rounded-xl border border-white/20 bg-white/70 px-3 py-2">
-                      Drapeau Reunion en option
-                    </span>
-                    <span className="rounded-xl border border-white/20 bg-white/70 px-3 py-2">
-                      Confettis si Oui
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
